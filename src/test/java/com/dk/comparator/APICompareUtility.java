@@ -1,9 +1,14 @@
 package com.dk.comparator;
 
+import static io.restassured.RestAssured.given;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 
 public class APICompareUtility {
 
@@ -25,8 +30,6 @@ public class APICompareUtility {
 			} 
 		
 		bufReader1.close();
-
-		System.out.println(list1);
 		
 		// Storing file 2 data line by line in list2 using bufferreader
 		BufferedReader bufReader2 = new BufferedReader(new FileReader(path2));
@@ -41,8 +44,43 @@ public class APICompareUtility {
 			} 
 		
 		bufReader2.close();
-
-		System.out.println(list2);
+		
+		// Get request for each api using for loop
+		for (int i =0 ; i<list1.size();i++) {
+			
+			Response res1 = given().get(list1.get(i));
+			
+			JsonPath js1 = res1.jsonPath();
+			
+			Integer id1 = js1.get("data.id");
+			String email1 = js1.get("data.email");
+			String fn1 = js1.get("data.first_name");
+			String ln1 = js1.get("data.last_name");
+			String avt1 = js1.get("data.avatar");
+			String url1 = js1.get("support.url");
+			String txt1 = js1.get("support.text");
+			
+			Response res2 = given().get(list2.get(i));
+			
+			JsonPath js2 = res2.jsonPath();
+			
+			Integer id2 = js2.get("data.id");
+			String email2 = js1.get("data.email");
+			String fn2 = js1.get("data.first_name");
+			String ln2 = js1.get("data.last_name");
+			String avt2 = js1.get("data.avatar");
+			String url2 = js1.get("support.url");
+			String txt2 = js1.get("support.text");
+			
+			// Comparing json response of each request
+			if (id1==id2 && email1.equals(email2) && fn1.equals(fn2) && ln1.equals(ln2) && avt1.equals(avt2) && url1.equals(url2) && txt1.equals(txt2)) {
+				System.out.println(list1.get(i)+" equals "+list2.get(i));
+			}
+				else {
+					System.out.println(list1.get(i)+" not equals "+list2.get(i));
+				}
+			
+		}
 		
 	}
 
