@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel= "methods" thread-count="6" data-provider-thread-count="12">
+  <test name="Test">
+    <classes>
+      <class name="com.dk.comparator.APICompareUtilityTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

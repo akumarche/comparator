@@ -1,12 +1,10 @@
 package com.dk.comparator;
 
 import static io.restassured.RestAssured.given;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
