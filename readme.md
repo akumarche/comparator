@@ -7,11 +7,13 @@ Two files under file/ directory as file1.txt and file.txt contains the API's lis
 Utility can be used in below ways :
 
 - Accessing APICompareUtility.java under src/test/java/com/dk/comparator/ 
+
   This is a java class and can simply run as java application to get the output.It takes 
   API's list from two files as input, compare response and then display results.
 
 
 - Accessing APICompareUtilityTest.java under src/test/java/com/dk/comparator/
+
   This is a testng test class implemented to run the utility in parallel. It
   Takes 2 files as an input from TestData.java as a dataProvider class and then run
   Comparison in parallel using testng. The utility can be run in below ways :
