@@ -4,7 +4,7 @@ Compare utility that compare the response of two requests from two files, then p
 
 Two files under file/ directory as file1.txt and file.txt contains the API's list. Currently it holds 12 requests which can be increased as required.
 
-Utility can be used in two below ways :
+Utility can be used in below ways :
 
 - Accessing APICompareUtility.java under src/test/java/com/dk/comparator/ 
   This is a java class and can simply run as java application to get the output.It takes 
@@ -17,7 +17,9 @@ Utility can be used in two below ways :
   Comparison in parallel using testng. The utility can be run in below ways :
   
    1 - Directly running the APICompareUtilityTest.java as an Testng Test
+   
    2 - MVN run from pom.xml file
+   
    3 - testng.xml run as an testng test
 
 Test Utility is build over RestAssured,TestNG,JAVA,Maven 
